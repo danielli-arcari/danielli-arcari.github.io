@@ -9,7 +9,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 20px;
-            background-color: #f4f4f4;
+            background-color: #001f3f;
             color: #333;
         }
         .container {
@@ -38,6 +38,20 @@
             padding-left: 10px;
             border-left: 3px solid #3498db;
         }
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 15px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .back-to-top:hover {
+            background-color: #2980b9;
+        }
         .footer {
             margin-top: 40px;
             text-align: center;
@@ -49,23 +63,23 @@
 <body>
     <div class="container">
         <h1>Danielli Arcari - Portfólio</h1>
-        <p>Graduanda em Ciência da Computação (Uninter), em transição de carreira para Ciência de Dados e Desenvolvimento Web. Apaixonada por análise de dados, visualização e programação interativa. Conheça meus projetos em JavaScript e análise de dados abaixo!</p>
+        <p>Graduanda em Ciência da Computação (Uninter), em transição de carreira de Direito para Ciência de Dados e Desenvolvimento Web. Com 15 anos de experiência analítica no âmbito jurídico, agora aplico essas habilidades em projetos de dados e programação. Explore meu trabalho abaixo!</p>
 
         <div class="section">
             <h2>Projetos em JavaScript</h2>
             <div class="project">
                 <h3>Sorteador de Amigo Secreto</h3>
-                <p>Uma aplicação web interativa para sorteio de amigo secreto, com adição de participantes, validação de nomes e sorteio aleatório. Desenvolvido para o Oracle Next Education (ONE) + Alura.</p>
+                <p>Uma aplicação web interativa para sorteio de amigo secreto, com adição de participantes e validação de nomes. Desenvolvido para o Oracle Next Education (ONE) + Alura.</p>
                 <p><a href="https://sorteador-amigosecreto-beryl.vercel.app/" target="_blank">Ver Deploy</a> | <a href="https://github.com/danielli-arcari/sorteador_amigosecreto" target="_blank">Ver Repositório</a></p>
             </div>
             <div class="project">
                 <h3>Calculadora de IMC</h3>
-                <p>Calculadora web que determina o Índice de Massa Corporal com base em peso e altura, exibindo a classificação da OMS. Interface responsiva e validação de dados.</p>
+                <p>Calculadora web que calcula o IMC com base em peso e altura, exibindo a classificação da OMS. Interface responsiva e validação de dados.</p>
                 <p><a href="https://calculadora-imc-gold-omega.vercel.app/" target="_blank">Ver Deploy</a> | <a href="https://github.com/danielli-arcari/calculadoraIMC" target="_blank">Ver Repositório</a></p>
             </div>
             <div class="project">
                 <h3>Jogo do Número Secreto</h3>
-                <p>Um jogo interativo onde o usuário tenta adivinhar um número secreto, com feedback dinâmico. Desenvolvido como parte do Oracle Next Education (ONE).</p>
+                <p>Jogo interativo onde o usuário adivinha um número secreto, com feedback dinâmico. Desenvolvido como parte do Oracle Next Education (ONE).</p>
                 <p><a href="https://curso-one-oracle-next-education-g9.vercel.app/" target="_blank">Ver Deploy</a></p>
             </div>
         </div>
@@ -89,7 +103,7 @@
             </div>
             <div class="project">
                 <h3>Análise da População Carcerária de Minas Gerais</h3>
-                <p>Análise de dados públicos do SEJUS-MG com Python (Pandas, NumPy, Seaborn, Matplotlib), focada em padrões demográficos na região central.</p>
+                <p>Análise de dados públicos do SEJUS-MG com Python (Pandas, NumPy, Seaborn, Matplotlib), focada em padrões demográficos.</p>
                 <p><a href="https://colab.research.google.com/drive/1ESr8ZIiVcNlW785A_7c3kQjfPLPLXbCu?usp=sharing" target="_blank">Visualizar</a></p>
             </div>
             <div class="project">
@@ -115,5 +129,6 @@
             <p>Desenvolvido por Danielli Arcari | 2025</p>
         </div>
     </div>
+    <button class="back-to-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">Voltar ao Topo</button>
 </body>
 </html>
