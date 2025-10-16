@@ -1,145 +1,143 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Danielli Arcari - Portfólio de Data Science e Desenvolvimento</title>
-    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Open Sans', sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #2f4f4f; /* Azul petróleo */
-            color:  #ffffff; /* branco puro para texto */
-        }
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: #4a6e6e; /* Azul petróleo mais claro para o container */
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.3);
-            border-top: 5px solid #ffffff; /* Branco puro para destaque */
-        }
-        h1, h2, h3 {
-            color: #ffffff; /* Branco puro para títulos */
-            font-weight: 700;
-        }
-        a {
-            color: #87CEEB; /* Azul claro para links */
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        .section {
-            margin-bottom: 30px;
-        }
-        .project {
-            margin-bottom: 20px;
-            padding-left: 10px;
-            border-left: 3px solid #4682b4;
-        }
-        .back-to-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            padding: 10px 15px;
-            background-color: #4682b4;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-family: 'Lato', sans-serif;
-        }
-        .back-to-top:hover {
-            background-color: #356d9b;
-        }
-        .footer {
-            margin-top: 40px;
-            text-align: center;
-            font-size: 0.9em;
-            color: #b0c4de; /* Cinza azulado para o footer */
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Danielli Arcari - Portfólio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .fade-in { opacity: 0; transform: translateY(20px); animation: fadeIn 1s forwards; }
+    @keyframes fadeIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
-<body>
-    <div class="container">
-        <h1>Danielli Arcari - Portfólio</h1>
-        <p>Olá! Me chamo Danielli Meilene Coutinho Arçari, sou graduanda em Ciência da Computação e apaixonada por tecnologia e resolução de problemas. 
-            Depois de 16 anos como advogada, decidi dar um novo rumo à minha carreira e mergulhar no universo do desenvolvimento 
-            de software e da análise de dados.</p>
-        <p>Atualmente, participo do programa Oracle Next Education (ONE G9) e também do Ada Tech+, onde venho aprimorando 
-            minhas habilidades em programação e data science. Além disso, busco constantemente novos cursos
-            e desafios para evoluir profissionalmente tanto na área de dados quanto na programação para construir 
-            uma base sólida em tecnologia. Estou em constante evolução, gosto de trabalhar em equipe e acredito 
-            que a tecnologia é uma ferramenta poderosa para transformar ideias em soluções que impactam pessoas
-            e negócios. Conheça alguns dos meus projetos:</p>
-            <div class="section">
-            <h2>Projetos em JavaScript</h2>
-            <div class="project">
-                <h3>Sorteador de Amigo Secreto</h3>
-                <p>Uma aplicação web interativa para sorteio de amigo secreto, com adição de participantes e validação de nomes. Desenvolvido para o Oracle Next Education (ONE) + Alura.</p>
-                <p><a href="https://sorteador-amigosecreto-beryl.vercel.app/" target="_blank">Ver Deploy</a> | <a href="https://github.com/danielli-arcari/sorteador_amigosecreto" target="_blank">Ver Repositório</a></p>
-            </div>
-            <div class="project">
-                <h3>Calculadora de IMC</h3>
-                <p>Calculadora web que calcula o IMC com base em peso e altura, exibindo a classificação da OMS. Interface responsiva e validação de dados.</p>
-                <p><a href="https://calculadora-imc-gold-omega.vercel.app/" target="_blank">Ver Deploy</a> | <a href="https://github.com/danielli-arcari/calculadoraIMC" target="_blank">Ver Repositório</a></p>
-            </div>
-            <div class="project">
-                <h3>Jogo do Número Secreto</h3>
-                <p>Jogo interativo onde o usuário adivinha um número secreto, com feedback dinâmico. Desenvolvido como parte do Oracle Next Education (ONE).</p>
-                <p><a href="https://curso-one-oracle-next-education-g9.vercel.app/" target="_blank">Ver Deploy</a></p>
-            </div>
-        </div>
+<body class="bg-gray-50 text-gray-800">
 
-        <div class="section">
-            <h2>Projetos de Análise de Dados</h2>
-            <div class="project">
-                <h3>Análise do Panorama do TI no Brasil</h3>
-                <p>(Parte dos estudos do curso "Análise de dados com python", oferecido pela Programaria) Análise detalhada de dados do setor de TI no Brasil, utilizando Python (Pandas, NumPy, Matplotlib, Scipy) no Google Colab.</p>
-                <p><a href="https://colab.research.google.com/drive/1gZSaMn-iavo5-DVsdTvuJBc39LAubcGA?usp=sharing" target="_blank">Ver Parte 1</a> | <a href="https://colab.research.google.com/drive/1BB9nEmwQzBuefpB_8-Q22ySi48DiawLO?usp=sharing" target="_blank">Ver Parte 2</a></p>
-            </div>
-            <div class="project">
-                <h3>Limpeza de Outliers</h3>
-                <p>Análise de dataset com foco na identificação e remoção de outliers, utilizando técnicas estatísticas (Parte dos estudos do curso "Análise exploratória de dados" oferecido pela AdaTech+).</p>
-                <p><a href="https://drive.google.com/file/d/1CJaaRZFoHGvNA37lhzrruhkahQ8ya0hb/view?usp=sharing" target="_blank">Visualizar</a></p>
-            </div>
-            <div class="project">
-                <h3>Análise com Visualização Histórica</h3>
-                <p>Exploração de dados com visualizações históricas para identificação de tendências (Parte dos estudos do curso Análise exploratória de dados oferecido pela AdaTech+).</p>
-                <p><a href="https://drive.google.com/file/d/1nIRo62_XHsJ9VmX-cgN0kEam-m3XeADz/view?usp=sharing" target="_blank">Visualizar</a></p>
-            </div>
-            <div class="project">
-                <h3>Análise da População Carcerária de Minas Gerais</h3>
-                <p>Análise de dados públicos do SEJUS-MG com Python (Pandas, NumPy, Seaborn, Matplotlib), focada em padrões demográficos.</p>
-                <p><a href="https://colab.research.google.com/drive/1ESr8ZIiVcNlW785A_7c3kQjfPLPLXbCu?usp=sharing" target="_blank">Visualizar</a></p>
-            </div>
-            <div class="project">
-                <h3>Controle Financeiro Pessoal (Google Sheets)</h3>
-                <p>Tabelas dinâmicas e gráficos interativos para organização de despesas pessoais.</p>
-                <p><a href="https://docs.google.com/spreadsheets/d/1al9h85-D-_kltOXRK9K1Jqj9FCE8vClDAMTrPi89oEs/edit?usp=sharing" target="_blank">Visualizar</a></p>
-            </div>
-            <div class="project">
-                <h3>Análise de Escolaridade (Google Sheets)</h3>
-                <p> Tabelas dinâmicas para mapear a distribuição de níveis educacionais(Parte dos estudos do curso "Análise de dados com python", oferecido pela Programaria).</p>
-                <p><a href="https://docs.google.com/spreadsheets/d/1bROo9XHrPGp8M1SO2_-lTxTkoWggg67G/edit?usp=sharing" target="_blank">Visualizar</a></p>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2>Contato</h2>
-            <p>Email: <a href="mailto:danielli.arcari@gmail.com">danielli.arcari@gmail.com</a></p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/danielli-arcari/" target="_blank">linkedin.com/in/danielli-arcari</a></p>
-            <p>GitHub: <a href="https://github.com/danielli-arcari" target="_blank">github.com/danielli-arcari</a></p>
-        </div>
-
-        <div class="footer">
-            <p>Desenvolvido por Danielli Arcari | 2025</p>
-        </div>
+  <!-- Header -->
+  <header class="bg-white shadow-md fixed w-full z-50">
+    <div class="container mx-auto flex justify-between items-center py-4 px-6">
+      <h1 class="text-2xl font-bold text-blue-600">Danielli Arcari</h1>
+      <nav>
+        <ul class="flex gap-6 font-medium">
+          <li><a href="#sobre" class="hover:text-blue-500 transition">Sobre</a></li>
+          <li><a href="#projetos" class="hover:text-blue-500 transition">Projetos</a></li>
+          <li><a href="#contato" class="hover:text-blue-500 transition">Contato</a></li>
+        </ul>
+      </nav>
     </div>
-    <button class="back-to-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">Voltar ao Topo</button>
+  </header>
+
+  <!-- Hero -->
+  <section class="pt-24 bg-gradient-to-r from-blue-100 to-white py-20 text-center fade-in">
+    <h2 class="text-4xl md:text-5xl font-bold mb-4">Olá, eu sou Danielli</h2>
+    <p class="text-gray-700 max-w-2xl mx-auto mb-6 text-lg">Ex-advogada em transição para Ciência da Computação, apaixonada por dados e desenvolvimento de software. Aqui você encontra meus projetos e conquistas.</p>
+    <a href="#projetos" class="bg-blue-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 transition">Ver Projetos</a>
+  </section>
+
+  <!-- Sobre Mim -->
+  <section id="sobre" class="container mx-auto py-16 px-6 fade-in">
+    <h2 class="text-3xl font-semibold mb-6 text-center">Sobre Mim</h2>
+    <div class="md:flex md:items-center md:gap-10">
+      <img src="https://via.placeholder.com/250" alt="Danielli Arcari" class="rounded-lg mx-auto mb-6 md:mb-0 md:mx-0 shadow-lg">
+      <p class="text-gray-600 text-lg md:flex-1">
+        Sou Danielli, ex-advogada, agora estudante de Ciência da Computação. Estou em transição de carreira para áreas de Data Science e desenvolvimento de software, explorando Python, análise de dados, desenvolvimento web e inteligência artificial. Sou curiosa, resiliente e adoro aprender novas tecnologias.
+      </p>
+    </div>
+  </section>
+
+  <!-- Projetos -->
+  <section id="projetos" class="bg-gray-100 py-16 px-6 fade-in">
+    <div class="container mx-auto text-center">
+      <h2 class="text-3xl font-semibold mb-12">Projetos</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <!-- Projeto 1 -->
+        <div class="bg-white rounded-xl shadow-lg p-6 hover:scale-105 transition transform">
+          <h3 class="text-xl font-bold mb-2">Panorama de TI no Brasil</h3>
+          <p class="text-gray-600 mb-4">
+            Dataset com análise detalhada do panorama de TI no Brasil. Uso de Google Colab, pandas, numpy, matplotlib e scipy.
+          </p>
+          <a href="https://colab.research.google.com/drive/1gZSaMn-iavo5-DVsdTvuJBc39LAubcGA?usp=sharing" target="_blank" class="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition">Ver Projeto</a>
+        </div>
+
+        <!-- Projeto 2 -->
+        <div class="bg-white rounded-xl shadow-lg p-6 hover:scale-105 transition transform">
+          <h3 class="text-xl font-bold mb-2">Continuação da Análise de TI</h3>
+          <p class="text-gray-600 mb-4">
+            Continuação da exploração dos dados do panorama de TI no Brasil. Visualização em Google Colab.
+          </p>
+          <a href="https://colab.research.google.com/drive/1BB9nEmwQzBuefpB_8-Q22ySi48DiawLO?usp=sharing" target="_blank" class="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition">Ver Projeto</a>
+        </div>
+
+        <!-- Projeto 3 -->
+        <div class="bg-white rounded-xl shadow-lg p-6 hover:scale-105 transition transform">
+          <h3 class="text-xl font-bold mb-2">Limpeza de Outliers</h3>
+          <p class="text-gray-600 mb-4">
+            Análise de dataset focada em limpeza de outliers para preparação de dados.
+          </p>
+          <a href="https://drive.google.com/file/d/1CJaaRZFoHGvNA37lhzrruhkahQ8ya0hb/view?usp=sharing" target="_blank" class="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition">Ver Projeto</a>
+        </div>
+
+        <!-- Projeto 4 -->
+        <div class="bg-white rounded-xl shadow-lg p-6 hover:scale-105 transition transform">
+          <h3 class="text-xl font-bold mb-2">Visualização Histórica</h3>
+          <p class="text-gray-600 mb-4">
+            Análise com visualização histórica de dados relevantes.
+          </p>
+          <a href="https://drive.google.com/file/d/1nIRo62_XHsJ9VmX-cgN0kEam-m3XeADz/view?usp=sharing" target="_blank" class="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition">Ver Projeto</a>
+        </div>
+
+        <!-- Projeto 5 -->
+        <div class="bg-white rounded-xl shadow-lg p-6 hover:scale-105 transition transform">
+          <h3 class="text-xl font-bold mb-2">População Carcerária MG</h3>
+          <p class="text-gray-600 mb-4">
+            Dataset extraído do site SEJUS-MG, análise da população carcerária da região central de Minas Gerais. Uso de pandas, numpy, seaborn e matplotlib.
+          </p>
+          <a href="https://colab.research.google.com/drive/1ESr8ZIiVcNlW785A_7c3kQjfPLPLXbCu?usp=sharing" target="_blank" class="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition">Ver Projeto</a>
+        </div>
+
+        <!-- Projeto 6 -->
+        <div class="bg-white rounded-xl shadow-lg p-6 hover:scale-105 transition transform">
+          <h3 class="text-xl font-bold mb-2">Controle Financeiro</h3>
+          <p class="text-gray-600 mb-4">
+            Criação de tabelas dinâmicas e gráficos no Google Sheets para organização de despesas pessoais.
+          </p>
+          <a href="https://docs.google.com/spreadsheets/d/1al9h85-D-_kltOXRK9K1Jqj9FCE8vClDAMTrPi89oEs/edit?usp=sharing" target="_blank" class="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition">Ver Projeto</a>
+        </div>
+
+        <!-- Projeto 7 -->
+        <div class="bg-white rounded-xl shadow-lg p-6 hover:scale-105 transition transform">
+          <h3 class="text-xl font-bold mb-2">Análise de Escolaridade</h3>
+          <p class="text-gray-600 mb-4">
+            Criação de tabelas dinâmicas no Google Sheets para identificar distribuição de níveis educacionais.
+          </p>
+          <a href="https://docs.google.com/spreadsheets/d/1bROo9XHrPGp8M1SO2_-lTxTkoWggg67G/edit?usp=sharing&ouid=106429783053417088364&rtpof=true&sd=true" target="_blank" class="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition">Ver Projeto</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contato -->
+  <section id="contato" class="container mx-auto py-16 px-6 text-center fade-in">
+    <h2 class="text-3xl font-semibold mb-4">Contato</h2>
+    <p class="text-gray-600 mb-6 text-lg">Vamos nos conectar! Me encontre nas redes ou envie um e-mail.</p>
+    <div class="flex justify-center gap-6">
+      <a href="https://github.com/danielli-arcari" target="_blank" class="text-gray-800 hover:text-blue-500 transition font-semibold">GitHub</a>
+      <a href="https://www.linkedin.com/in/danielli-arcari" target="_blank" class="text-gray-800 hover:text-blue-500 transition font-semibold">LinkedIn</a>
+      <a href="mailto:seuemail@example.com" class="text-gray-800 hover:text-blue-500 transition font-semibold">E-mail</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-white py-6 text-center text-gray-500 fade-in">
+    &copy; 2025 Danielli Arcari. Todos os direitos reservados.
+  </footer>
+
 </body>
 </html>
