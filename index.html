@@ -1,310 +1,321 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Danielli Arcari | Portfolio Profissional</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Danielli Arcari — Portfólio | Analista de Dados Jr</title>
+  <meta name="description" content="Portfólio de Danielli Arcari — projetos e habilidades em Análise de Dados, Python, SQL e visualização. Buscando vagas de entrada." />
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="" crossorigin="anonymous">
   <style>
-    body { font-family: 'Inter', sans-serif; }
-    
-    /* Animações sutis */
-    .fade-in { opacity: 0; transform: translateY(20px); animation: fadeIn 0.8s forwards; }
-    .delay-100 { animation-delay: 0.1s; }
-    .delay-200 { animation-delay: 0.2s; }
-    .delay-300 { animation-delay: 0.3s; }
-    
-    @keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
-    
-    .project-card { transition: all 0.3s ease; }
-    .project-card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
-    
-    /* Gradiente Profissional */
-    .gradient-text {
-      background: linear-gradient(90deg, #1e40af, #3b82f6); /* Azul mais sóbrio */
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    
-    /* Background animado sutil */
-    @keyframes blob {
-      0% { transform: translate(0px, 0px) scale(1); }
-      33% { transform: translate(30px, -50px) scale(1.1); }
-      66% { transform: translate(-20px, 20px) scale(0.9); }
-      100% { transform: translate(0px, 0px) scale(1); }
-    }
-    .animate-blob { animation: blob 7s infinite; }
-    .animation-delay-2000 { animation-delay: 2s; }
+    :root { --accent-1: #1e40af; --accent-2: #3b82f6; }
+    html,body { font-family: 'Inter', sans-serif; }
+    .gradient-text { background: linear-gradient(90deg,var(--accent-1),var(--accent-2)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    .fade-in { opacity: 0; transform: translateY(18px); animation: fadeIn .6s forwards; }
+    .delay-100 { animation-delay:.08s } .delay-200{animation-delay:.16s}.delay-300{animation-delay:.24s}
+    @keyframes fadeIn { to { opacity:1; transform: translateY(0); } }
+    .project-card{ transition:transform .22s ease, box-shadow .22s ease; }
+    .project-card:hover{ transform: translateY(-6px); box-shadow: 0 12px 30px rgba(2,6,23,.12); }
+    /* small visual polish for header when scrolled */
+    .header-shadow { box-shadow: 0 6px 18px rgba(2,6,23,.06); backdrop-filter: blur(6px); }
   </style>
 </head>
 <body class="bg-slate-50 text-slate-700 antialiased">
 
-  <header class="bg-white/95 backdrop-blur-sm border-b border-slate-200 fixed w-full z-50 transition-all duration-300">
-    <div class="container mx-auto flex justify-between items-center py-4 px-6">
-      <div class="text-xl font-bold text-slate-900 tracking-tight">Danielli.<span class="text-blue-700">Arcari</span></div>
-      <nav class="hidden md:block">
-        <ul class="flex gap-8 font-medium text-slate-600 text-sm">
-          <li><a href="#sobre" class="hover:text-blue-700 transition duration-300">Sobre</a></li>
-          <li><a href="#skills" class="hover:text-blue-700 transition duration-300">Skills</a></li>
-          <li><a href="#projetos" class="hover:text-blue-700 transition duration-300">Projetos</a></li>
-          <li><a href="#contato" class="hover:text-blue-700 transition duration-300">Contato</a></li>
-        </ul>
-      </nav>
+  <a class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-white px-3 py-2 rounded shadow" href="#main">Ir para o conteúdo</a>
+
+  <header id="site-header" class="fixed w-full z-50">
+    <div class="bg-white/95 border-b border-slate-200">
+      <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+        <a href="#" class="text-xl font-bold text-slate-900 tracking-tight" aria-label="Home — Danielli Arcari">
+          Danielli<span class="text-blue-700">.Arcari</span>
+        </a>
+
+        <!-- desktop nav -->
+        <nav class="hidden md:block" aria-label="Navegação principal">
+          <ul class="flex gap-8 font-medium text-slate-600 text-sm">
+            <li><a href="#sobre" class="hover:text-blue-700 transition">Sobre</a></li>
+            <li><a href="#skills" class="hover:text-blue-700 transition">Skills</a></li>
+            <li><a href="#projetos" class="hover:text-blue-700 transition">Projetos</a></li>
+            <li><a href="#contato" class="hover:text-blue-700 transition">Contato</a></li>
+          </ul>
+        </nav>
+
+        <!-- mobile toggle -->
+        <button id="nav-toggle" aria-expanded="false" aria-controls="mobile-nav" class="md:hidden p-2 rounded hover:bg-slate-100">
+          <span class="sr-only">Abrir menu</span>
+          <i class="fa-solid fa-bars text-slate-700"></i>
+        </button>
+      </div>
+
+      <!-- mobile nav -->
+      <div id="mobile-nav" class="hidden md:hidden border-t border-slate-100">
+        <div class="container mx-auto px-6 py-4 flex flex-col gap-3">
+          <a href="#sobre" class="py-2">Sobre</a>
+          <a href="#skills" class="py-2">Skills</a>
+          <a href="#projetos" class="py-2">Projetos</a>
+          <a href="#contato" class="py-2">Contato</a>
+        </div>
+      </div>
     </div>
   </header>
 
-  <section class="pt-40 pb-24 bg-white relative overflow-hidden">
-    <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
-    <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-96 h-96 bg-indigo-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
-    
-    <div class="container mx-auto px-6 text-center relative z-10 fade-in">
-      <span class="inline-block py-1 px-3 rounded-full bg-slate-100 text-slate-600 text-xs font-bold uppercase tracking-wider mb-6 border border-slate-200">
-        Análise de dados
-      </span>
-      <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight text-slate-900">
-        Transformo dados brutos em <br><span class="gradient-text">inteligência de negócio.</span>
-      </h1>
-      <p class="text-lg text-slate-600 max-w-2xl mx-auto mb-10 leading-relaxed font-light">
-        Estudante de Ciência da Computação focada na arquitetura de soluções robustas, realizo análise de dados utilizando python para resolver problemas complexos.
-      </p>
-      <div class="flex justify-center gap-4">
-        <a href="#projetos" class="bg-slate-900 hover:bg-slate-800 text-white font-medium py-3 px-8 rounded-lg transition shadow-lg hover:shadow-xl">
-          Ver Portfólio
-        </a>
-        <a href="#contato" class="bg-white hover:bg-slate-50 text-slate-700 font-medium py-3 px-8 rounded-lg border border-slate-300 transition shadow-sm hover:shadow-md">
-          Entrar em contato
-        </a>
-      </div>
-    </div>
-  </section>
+  <main id="main" class="pt-28">
 
-  <section id="sobre" class="py-20 bg-slate-50 border-t border-slate-200">
-    <div class="container mx-auto px-6 max-w-5xl">
-      <div class="flex flex-col md:flex-row items-start gap-12">
-        <div class="md:w-1/3 fade-in">
-          <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
-             <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-blue-700 text-xl mb-4">
-               <i class="fa-solid fa-user-graduate"></i>
-             </div>
-             <h3 class="text-xl font-bold text-slate-900 mb-2">Perfil Analítico</h3>
-             <p class="text-sm text-slate-600 leading-relaxed">
-               Minha transição para tecnologia é marcada pela disciplina acadêmica e foco em resultados. Busco a eficiência em cada linha de código.
-             </p>
+    <!-- HERO -->
+    <section class="pt-12 pb-20 bg-white relative overflow-hidden">
+      <div class="container mx-auto px-6 text-center fade-in">
+        <span class="inline-block py-1 px-3 rounded-full bg-slate-100 text-slate-600 text-xs font-bold uppercase tracking-wider mb-6 border border-slate-200">Análise de Dados</span>
+        <h1 class="text-4xl md:text-5xl font-bold mb-4 leading-tight text-slate-900">
+          Transformo dados em <span class="gradient-text">decisões acionáveis</span>
+        </h1>
+        <p class="text-lg text-slate-600 max-w-2xl mx-auto mb-8 font-light">
+          Graduanda em Ciência da Computação, foco em Análise de Dados e visualização. Busco posições entry-level (estágio / júnior) para aplicar Python, SQL e storytelling com dados.
+        </p>
+
+        <div class="flex justify-center gap-3">
+          <a href="#projetos" class="bg-slate-900 hover:bg-slate-800 text-white font-medium py-3 px-6 rounded-lg shadow-sm">Ver projetos</a>
+          <a href="#contato" class="bg-white hover:bg-slate-50 text-slate-700 font-medium py-3 px-6 rounded-lg border border-slate-300">Contatar</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section id="sobre" class="py-16 bg-slate-50 border-t border-slate-200">
+      <div class="container mx-auto px-6 max-w-5xl">
+        <div class="flex flex-col md:flex-row gap-10 items-start">
+          <div class="md:w-1/3">
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+              <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-blue-700 text-xl mb-3">
+                <i class="fa-solid fa-user"></i>
+              </div>
+              <h3 class="text-lg font-bold text-slate-900 mb-1">Perfil</h3>
+              <p class="text-sm text-slate-600">
+                Transição de carreira para tecnologia com foco em análise de dados. Prática em Python, tratamento de dados e criação de dashboards orientados a resultado.
+              </p>
+            </div>
+          </div>
+
+          <div class="md:w-2/3">
+            <h2 class="text-2xl font-bold mb-4 text-slate-900">Resumo profissional</h2>
+            <div class="prose max-w-none text-slate-700">
+              <p>
+                Sou graduanda em Ciência da Computação. Tenho habilidade em análise exploratória, ETL básico, modelagem de dados simples e apresentação de insights para tomada de decisão.
+              </p>
+              <p>
+                Competências transferíveis da minha experiência anterior como advogada: análise crítica, comunicação objetiva, documentação e organização de processos.
+              </p>
+              <a href="https://www.linkedin.com/in/danielli-arcari/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 mt-4 text-blue-700 font-semibold hover:text-blue-900">
+                Ver perfil completo no LinkedIn <i class="fa-solid fa-arrow-up-right-from-square text-sm"></i>
+              </a>
+            </div>
           </div>
         </div>
-        
-        <div class="md:w-2/3 fade-in delay-100">
-          <h2 class="text-2xl font-bold mb-6 text-slate-900">Sobre a Profissional</h2>
-          <div class="text-slate-600 leading-relaxed space-y-4 text-lg">
-            <p>
-              Como graduanda em <strong>Ciência da Computação</strong>, meu foco não é apenas "rodar o script", mas entender a arquitetura dos dados. Possuo uma abordagem madura para resolução de problemas, onde a tecnologia é o meio para gerar valor real.
-            </p>
-            <p>
-              Atualmente, dedico meus estudos à intersecção entre <strong>Análise de Dados e Análise Estatística</strong>. Tenho facilidade em estruturar raciocínios lógicos e documentar processos, garantindo que as soluções sejam escaláveis e compreensíveis.
-            </p>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="py-16 bg-white">
+      <div class="container mx-auto px-6 max-w-6xl">
+        <div class="text-center mb-10 fade-in">
+          <h2 class="text-3xl font-bold text-slate-900">Stack e Ferramentas</h2>
+          <p class="text-slate-500 mt-2">Principais tecnologias que uso no trabalho com dados.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="p-6 border rounded-xl bg-slate-50">
+            <h3 class="font-bold text-slate-800 mb-3 flex items-center gap-2"><i class="fa-brands fa-python text-blue-600"></i> Linguagens & Core</h3>
+            <div class="flex flex-wrap gap-2 text-sm">
+              <span class="px-3 py-1 bg-white border rounded text-slate-600">Python</span>
+              <span class="px-3 py-1 bg-white border rounded text-slate-600">SQL</span>
+              <span class="px-3 py-1 bg-white border rounded text-slate-600">Lógica de Programação</span>
+            </div>
           </div>
-          
-          <a href="https://www.linkedin.com/in/danielli-arcari/" target="_blank" class="inline-flex items-center gap-2 mt-6 text-blue-700 font-semibold hover:text-blue-900 transition">
-            Ver experiência completa no LinkedIn <i class="fa-solid fa-arrow-right text-sm"></i>
+
+          <div class="p-6 border rounded-xl bg-slate-50">
+            <h3 class="font-bold text-slate-800 mb-3 flex items-center gap-2"><i class="fa-solid fa-chart-pie text-green-600"></i> Data Science</h3>
+            <div class="flex flex-wrap gap-2 text-sm">
+              <span class="px-3 py-1 bg-white border rounded text-slate-600">Pandas</span>
+              <span class="px-3 py-1 bg-white border rounded text-slate-600">NumPy</span>
+              <span class="px-3 py-1 bg-white border rounded text-slate-600">Matplotlib / Seaborn</span>
+              <span class="px-3 py-1 bg-white border rounded text-slate-600">Jupyter / Colab</span>
+            </div>
+          </div>
+
+          <div class="p-6 border rounded-xl bg-slate-50">
+            <h3 class="font-bold text-slate-800 mb-3 flex items-center gap-2"><i class="fa-solid fa-database text-purple-600"></i> Ferramentas</h3>
+            <div class="flex flex-wrap gap-2 text-sm">
+              <span class="px-3 py-1 bg-white border rounded text-slate-600">Git / GitHub</span>
+              <span class="px-3 py-1 bg-white border rounded text-slate-600">Excel Avançado</span>
+              <span class="px-3 py-1 bg-white border rounded text-slate-600">Google Sheets</span>
+              <span class="px-3 py-1 bg-white border rounded text-slate-600">Power BI (básico)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJETOS -->
+    <section id="projetos" class="py-20 bg-slate-900 text-slate-100">
+      <div class="container mx-auto px-6 max-w-6xl">
+        <div class="text-center mb-10 fade-in">
+          <h2 class="text-3xl font-bold mb-2">Projetos</h2>
+          <p class="max-w-xl mx-auto text-slate-300">Projetos que demonstram processo: desafio → solução → resultado.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Card: Panorama mercado (Excel) -->
+          <a href="https://docs.google.com/spreadsheets/d/1bROo9XHrPGp8M1SO2_-lTxTkoWggg67G/edit?usp=sharing&ouid=106429783053417088364&rtpof=true&sd=true" target="_blank" rel="noopener" class="project-card block bg-slate-800 rounded-xl border border-slate-700 p-6 group">
+            <div class="flex justify-between items-start mb-4">
+              <span class="text-xs font-bold tracking-wider text-green-400 uppercase">Excel / ETL</span>
+              <i class="fa-solid fa-table text-slate-400 group-hover:text-green-300"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Panorama do Mercado de TI</h3>
+            <p class="text-sm text-slate-400 mb-4">
+              Desafio: consolidar dados públicos e vagas para identificar tendências. Solução: tratamento e normalização em planilha, com dashboards para tomada de decisão.
+            </p>
+            <div class="flex gap-2 text-xs text-slate-300">
+              <span class="px-2 py-1 bg-slate-900 rounded">Excel</span>
+              <span class="px-2 py-1 bg-slate-900 rounded">Data Viz</span>
+            </div>
+          </a>
+
+          <!-- Card: Cuisine Rating (Colab) -->
+          <a href="https://colab.research.google.com/drive/1LOkaSOgVbuFusigzwaRzfwIY-0kgo0cN?usp=sharing" target="_blank" rel="noopener" class="project-card block bg-slate-800 rounded-xl border border-slate-700 p-6 group">
+            <div class="flex justify-between items-start mb-4">
+              <span class="text-xs font-bold tracking-wider text-orange-400 uppercase">Exploratória</span>
+              <i class="fa-brands fa-python text-slate-400 group-hover:text-orange-300"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Cuisine Rating Analysis</h3>
+            <p class="text-sm text-slate-400 mb-4">
+              Limpeza e análise de reviews para extrair padrões de satisfação por tipo de cozinha. Entreguei insights acionáveis sobre alvos de melhoria.
+            </p>
+            <div class="flex gap-2 text-xs text-slate-300">
+              <span class="px-2 py-1 bg-slate-900 rounded">Python</span>
+              <span class="px-2 py-1 bg-slate-900 rounded">Pandas</span>
+            </div>
+          </a>
+
+          <!-- Card: Cashback Meliuz -->
+          <a href="https://colab.research.google.com/drive/1slcR0ejixmAQNrfhnSUMZkvGlMUPDzGv?usp=sharing" target="_blank" rel="noopener" class="project-card block bg-slate-800 rounded-xl border border-slate-700 p-6 group">
+            <div class="flex justify-between items-start mb-4">
+              <span class="text-xs font-bold tracking-wider text-purple-400 uppercase">Case</span>
+              <i class="fa-solid fa-magnifying-glass-chart text-slate-400 group-hover:text-purple-300"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Experimento: Cashback</h3>
+            <p class="text-sm text-slate-400 mb-4">
+              Estudo de comportamento de usuários frente a programas de cashback. Resultado: hipótese de retenção com proposta de métricas de A/B.
+            </p>
+            <div class="flex gap-2 text-xs text-slate-300">
+              <span class="px-2 py-1 bg-slate-900 rounded">Análise</span>
+              <span class="px-2 py-1 bg-slate-900 rounded">Experimentação</span>
+            </div>
+          </a>
+
+          <!-- Card: IDH -->
+          <a href="https://colab.research.google.com/drive/1ESr8ZIiVcNlW785A_7c3kQjfPLPLXbCu?usp=sharing" target="_blank" rel="noopener" class="project-card block bg-slate-800 rounded-xl border border-slate-700 p-6 group">
+            <div class="flex justify-between items-start mb-4">
+              <span class="text-xs font-bold tracking-wider text-blue-400 uppercase">Estatística</span>
+              <i class="fa-solid fa-chart-line text-slate-400 group-hover:text-blue-300"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Análise Socioeconômica (IDH)</h3>
+            <p class="text-sm text-slate-400 mb-4">
+              Cruzamento de bases e correlações entre indicadores socioeconômicos. Entreguei dashboards que evidenciam disparidades regionais.
+            </p>
+            <div class="flex gap-2 text-xs text-slate-300">
+              <span class="px-2 py-1 bg-slate-900 rounded">Matplotlib</span>
+              <span class="px-2 py-1 bg-slate-900 rounded">Estatística</span>
+            </div>
+          </a>
+
+          <!-- Card: Visualização com Python -->
+          <a href="https://drive.google.com/file/d/1nIRo62_XHsJ9VmX-cgN0kEam-m3XeADz/view?usp=sharing" target="_blank" rel="noopener" class="project-card block bg-slate-800 rounded-xl border border-slate-700 p-6 group">
+            <div class="flex justify-between items-start mb-4">
+              <span class="text-xs font-bold tracking-wider text-pink-400 uppercase">Visualização</span>
+              <i class="fa-solid fa-eye text-slate-400 group-hover:text-pink-300"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Visualização com Python</h3>
+            <p class="text-sm text-slate-400 mb-4">
+              Transformação de tabelas em narrativas visuais para apresentações executivas. Foco em clareza e interpretação rápida.
+            </p>
+            <div class="flex gap-2 text-xs text-slate-300">
+              <span class="px-2 py-1 bg-slate-900 rounded">Storytelling</span>
+              <span class="px-2 py-1 bg-slate-900 rounded">Seaborn</span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section id="contato" class="py-16 bg-white border-t border-slate-200">
+      <div class="container mx-auto px-6 max-w-4xl text-center fade-in">
+        <h2 class="text-3xl font-bold mb-4 text-slate-900">Vamos conversar?</h2>
+        <p class="text-slate-600 mb-8">Disponível para vagas de entrada em Análise de Dados (estágio / jr). Prefiro posições remotas ou híbridas.</p>
+
+        <div class="grid md:grid-cols-3 gap-4">
+          <a href="https://www.linkedin.com/in/danielli-arcari/" target="_blank" rel="noopener" class="p-6 rounded-xl border hover:border-blue-700 bg-white shadow-sm">
+            <i class="fa-brands fa-linkedin text-3xl text-blue-700 mb-3"></i>
+            <h3 class="font-bold text-slate-800">LinkedIn</h3>
+            <p class="text-xs text-slate-500 mt-1">Conexão profissional</p>
+          </a>
+
+          <a href="https://github.com/danielli-arcari" target="_blank" rel="noopener" class="p-6 rounded-xl border hover:border-slate-800 bg-white shadow-sm">
+            <i class="fa-brands fa-github text-3xl text-slate-800 mb-3"></i>
+            <h3 class="font-bold text-slate-800">GitHub</h3>
+            <p class="text-xs text-slate-500 mt-1">Repositórios</p>
+          </a>
+
+          <a href="mailto:danielli.arcari@gmail.com?subject=Contato%20portfólio%20-%20Vaga%20Dados" class="p-6 rounded-xl border hover:border-red-500 bg-white shadow-sm">
+            <i class="fa-solid fa-envelope text-3xl text-red-500 mb-3"></i>
+            <h3 class="font-bold text-slate-800">Email</h3>
+            <p class="text-xs text-slate-500 mt-1">Contato direto</p>
           </a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="skills" class="py-20 bg-white">
-    <div class="container mx-auto px-6 max-w-6xl">
-      <div class="text-center mb-16 fade-in">
-        <h2 class="text-3xl font-bold text-slate-900">Stack Tecnológico</h2>
-        <p class="text-slate-500 mt-2">Ferramentas e tecnologias que utilizo no dia a dia.</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        
-        <div class="p-6 border border-slate-100 rounded-xl bg-slate-50 hover:border-blue-200 transition fade-in delay-100">
-          <h3 class="font-bold text-slate-800 mb-4 flex items-center gap-2">
-            <i class="fa-brands fa-python text-blue-600"></i> Linguagens & Core
-          </h3>
-          <div class="flex flex-wrap gap-2">
-            <span class="px-3 py-1 bg-white border border-slate-200 text-slate-600 rounded-md text-sm">Python</span>
-            <span class="px-3 py-1 bg-white border border-slate-200 text-slate-600 rounded-md text-sm">SQL</span>
-            <span class="px-3 py-1 bg-white border border-slate-200 text-slate-600 rounded-md text-sm">Java (Básico)</span>
-            <span class="px-3 py-1 bg-white border border-slate-200 text-slate-600 rounded-md text-sm">Lógica de Prog.</span>
-          </div>
-        </div>
-
-        <div class="p-6 border border-slate-100 rounded-xl bg-slate-50 hover:border-green-200 transition fade-in delay-200">
-          <h3 class="font-bold text-slate-800 mb-4 flex items-center gap-2">
-            <i class="fa-solid fa-chart-pie text-green-600"></i> Data Science
-          </h3>
-          <div class="flex flex-wrap gap-2">
-            <span class="px-3 py-1 bg-white border border-slate-200 text-slate-600 rounded-md text-sm">Pandas</span>
-            <span class="px-3 py-1 bg-white border border-slate-200 text-slate-600 rounded-md text-sm">NumPy</span>
-            <span class="px-3 py-1 bg-white border border-slate-200 text-slate-600 rounded-md text-sm">Matplotlib</span>
-            <span class="px-3 py-1 bg-white border border-slate-200 text-slate-600 rounded-md text-sm">Jupyter</span>
-            <span class="px-3 py-1 bg-white border border-slate-200 text-slate-600 rounded-md text-sm">Estatística</span>
-          </div>
-        </div>
-
-        <div class="p-6 border border-slate-100 rounded-xl bg-slate-50 hover:border-purple-200 transition fade-in delay-300">
-          <h3 class="font-bold text-slate-800 mb-4 flex items-center gap-2">
-            <i class="fa-solid fa-database text-purple-600"></i> Dados & Tools
-          </h3>
-          <div class="flex flex-wrap gap-2">
-            <span class="px-3 py-1 bg-white border border-slate-200 text-slate-600 rounded-md text-sm">MySQL</span>
-            <span class="px-3 py-1 bg-white border border-slate-200 text-slate-600 rounded-md text-sm">PostgreSQL</span>
-            <span class="px-3 py-1 bg-white border border-slate-200 text-slate-600 rounded-md text-sm">Git/GitHub</span>
-            <span class="px-3 py-1 bg-white border border-slate-200 text-slate-600 rounded-md text-sm">Excel Avançado</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <section id="projetos" class="py-24 bg-slate-900 text-slate-300">
-    <div class="container mx-auto px-6">
-      <div class="text-center mb-16 fade-in">
-        <h2 class="text-3xl font-bold mb-4 text-white">Projetos em Destaque</h2>
-        <p class="max-w-xl mx-auto text-slate-400">Seleção de trabalhos que demonstram minha capacidade de análise e codificação.</p>
-      </div>
-      
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        
-        <a href="https://docs.google.com/spreadsheets/d/1bROo9XHrPGp8M1SO2_-lTxTkoWggg67G/edit?usp=sharing&ouid=106429783053417088364&rtpof=true&sd=true" target="_blank" class="project-card bg-slate-800 rounded-xl overflow-hidden border border-slate-700 hover:border-green-500 flex flex-col h-full group">
-          <div class="p-6 flex flex-col h-full">
-            <div class="flex justify-between items-start mb-4">
-              <span class="text-xs font-bold tracking-wider text-green-400 uppercase">Análise de Mercado</span>
-              <i class="fa-solid fa-table text-slate-500 group-hover:text-green-400 transition"></i>
-            </div>
-            <h3 class="text-xl font-bold text-white mb-3">Panorama de TI</h3>
-            <p class="text-sm text-slate-400 mb-4 flex-grow">
-              <strong>O Desafio:</strong> Organizar dados dispersos sobre o mercado de TI.<br>
-              <strong>Solução:</strong> Tratamento de dados em planilhas complexas para identificar tendências.<br>
-              <strong>Resultado:</strong> Visualização clara de nichos em ascensão.
-            </p>
-            <div class="mt-4 pt-4 border-t border-slate-700 flex gap-2">
-              <span class="text-xs bg-slate-900 px-2 py-1 rounded text-slate-300">Excel</span>
-              <span class="text-xs bg-slate-900 px-2 py-1 rounded text-slate-300">Data Viz</span>
-            </div>
-          </div>
-        </a>
-
-        <a href="https://colab.research.google.com/drive/1LOkaSOgVbuFusigzwaRzfwIY-0kgo0cN?usp=sharing" target="_blank" class="project-card bg-slate-800 rounded-xl overflow-hidden border border-slate-700 hover:border-orange-500 flex flex-col h-full group">
-          <div class="p-6 flex flex-col h-full">
-             <div class="flex justify-between items-start mb-4">
-              <span class="text-xs font-bold tracking-wider text-orange-400 uppercase">Análise Exploratória</span>
-              <i class="fa-brands fa-python text-slate-500 group-hover:text-orange-400 transition"></i>
-            </div>
-            <h3 class="text-xl font-bold text-white mb-3">Cuisine Rating Analysis</h3>
-             <p class="text-sm text-slate-400 mb-4 flex-grow">
-              <strong>O Desafio:</strong> Entender preferências culinárias baseadas em reviews.<br>
-              <strong>Solução:</strong> Limpeza de dados com Pandas e segmentação de clientes.<br>
-              <strong>Resultado:</strong> Insights sobre padrões de satisfação por tipo de cozinha.
-            </p>
-            <div class="mt-4 pt-4 border-t border-slate-700 flex gap-2">
-              <span class="text-xs bg-slate-900 px-2 py-1 rounded text-slate-300">Python</span>
-              <span class="text-xs bg-slate-900 px-2 py-1 rounded text-slate-300">Pandas</span>
-            </div>
-          </div>
-        </a>
-
-        <a href="https://colab.research.google.com/drive/1slcR0ejixmAQNrfhnSUMZkvGlMUPDzGv?usp=sharing" target="_blank" class="project-card bg-slate-800 rounded-xl overflow-hidden border border-slate-700 hover:border-purple-500 flex flex-col h-full group">
-          <div class="p-6 flex flex-col h-full">
-             <div class="flex justify-between items-start mb-4">
-              <span class="text-xs font-bold tracking-wider text-purple-400 uppercase">Estudo de Caso</span>
-              <i class="fa-solid fa-magnifying-glass-chart text-slate-500 group-hover:text-purple-400 transition"></i>
-            </div>
-            <h3 class="text-xl font-bold text-white mb-3">Cashback Méliuz</h3>
-            <p class="text-sm text-slate-400 mb-4 flex-grow">
-              <strong>O Desafio:</strong> Analisar o impacto de programas de fidelidade.<br>
-              <strong>Solução:</strong> Estudo de comportamento do usuário frente a benefícios.<br>
-              <strong>Resultado:</strong> Modelo lógico para estratégias de retenção.
-            </p>
-            <div class="mt-4 pt-4 border-t border-slate-700 flex gap-2">
-              <span class="text-xs bg-slate-900 px-2 py-1 rounded text-slate-300">Business Intel</span>
-              <span class="text-xs bg-slate-900 px-2 py-1 rounded text-slate-300">Análise</span>
-            </div>
-          </div>
-        </a>
-
-        <a href="https://colab.research.google.com/drive/1ESr8ZIiVcNlW785A_7c3kQjfPLPLXbCu?usp=sharing" target="_blank" class="project-card bg-slate-800 rounded-xl overflow-hidden border border-slate-700 hover:border-blue-500 flex flex-col h-full group">
-          <div class="p-6 flex flex-col h-full">
-             <div class="flex justify-between items-start mb-4">
-              <span class="text-xs font-bold tracking-wider text-blue-400 uppercase">Estatística</span>
-              <i class="fa-solid fa-chart-line text-slate-500 group-hover:text-blue-400 transition"></i>
-            </div>
-            <h3 class="text-xl font-bold text-white mb-3">Análise Socioeconômica (IDH)</h3>
-             <p class="text-sm text-slate-400 mb-4 flex-grow">
-              <strong>O Desafio:</strong> Correlacionar variáveis econômicas complexas.<br>
-              <strong>Solução:</strong> Tratamento estatístico e cruzamento de bases de dados.<br>
-              <strong>Resultado:</strong> Dashboards que evidenciam disparidades regionais.
-            </p>
-            <div class="mt-4 pt-4 border-t border-slate-700 flex gap-2">
-              <span class="text-xs bg-slate-900 px-2 py-1 rounded text-slate-300">Matplotlib</span>
-              <span class="text-xs bg-slate-900 px-2 py-1 rounded text-slate-300">Estatística</span>
-            </div>
-          </div>
-        </a>
-
-        <a href="https://colab.research.google.com/drive/1gZSaMn-iavo5-DVsdTvuJBc39LAubcGA?usp=sharing" target="_blank" class="project-card bg-slate-800 rounded-xl overflow-hidden border border-slate-700 hover:border-pink-500 flex flex-col h-full group">
-          <div class="p-6 flex flex-col h-full">
-             <div class="flex justify-between items-start mb-4">
-              <span class="text-xs font-bold tracking-wider text-pink-400 uppercase">Data Visualization</span>
-              <i class="fa-solid fa-eye text-slate-500 group-hover:text-pink-400 transition"></i>
-            </div>
-            <h3 class="text-xl font-bold text-white mb-3">Visualização com Python</h3>
-             <p class="text-sm text-slate-400 mb-4 flex-grow">
-              <strong>O Desafio:</strong> Transformar números frios em narrativa visual.<br>
-              <strong>Solução:</strong> Aplicação de bibliotecas Seaborn/Matplotlib com foco em storytelling.<br>
-              <strong>Resultado:</strong> Gráficos intuitivos para apresentações executivas.
-            </p>
-            <div class="mt-4 pt-4 border-t border-slate-700 flex gap-2">
-              <span class="text-xs bg-slate-900 px-2 py-1 rounded text-slate-300">Storytelling</span>
-              <span class="text-xs bg-slate-900 px-2 py-1 rounded text-slate-300">Seaborn</span>
-            </div>
-          </div>
-        </a>
-
-      </div>
-    </div>
-  </section>
-
-  <section id="contato" class="py-24 bg-white relative border-t border-slate-200">
-    <div class="container mx-auto px-6 max-w-4xl text-center fade-in">
-      <h2 class="text-3xl font-bold mb-4 text-slate-900">Vamos Conversar?</h2>
-      <p class="text-slate-600 mb-12">
-        Estou disponível para oportunidades como Cientista de Dados Jr ou Desenvolvedora Python.
-      </p>
-      
-      <div class="grid md:grid-cols-3 gap-6">
-        <a href="https://www.linkedin.com/in/danielli-arcari/" target="_blank" class="p-6 rounded-xl border border-slate-200 hover:border-blue-700 hover:bg-blue-50 transition group bg-white shadow-sm">
-          <i class="fa-brands fa-linkedin text-3xl text-blue-700 mb-3 group-hover:scale-110 transition-transform"></i>
-          <h3 class="font-bold text-slate-800">LinkedIn</h3>
-          <p class="text-xs text-slate-500 mt-1">Conexão Profissional</p>
-        </a>
-
-        <a href="https://github.com/danielli-arcari" target="_blank" class="p-6 rounded-xl border border-slate-200 hover:border-slate-800 hover:bg-slate-50 transition group bg-white shadow-sm">
-          <i class="fa-brands fa-github text-3xl text-slate-800 mb-3 group-hover:scale-110 transition-transform"></i>
-          <h3 class="font-bold text-slate-800">GitHub</h3>
-          <p class="text-xs text-slate-500 mt-1">Ver Repositórios</p>
-        </a>
-
-        <a href="mailto:danielli.arcari@gmail.com" class="p-6 rounded-xl border border-slate-200 hover:border-red-500 hover:bg-red-50 transition group bg-white shadow-sm">
-          <i class="fa-solid fa-envelope text-3xl text-red-500 mb-3 group-hover:scale-110 transition-transform"></i>
-          <h3 class="font-bold text-slate-800">Email</h3>
-          <p class="text-xs text-slate-500 mt-1">Contato Direto</p>
-        </a>
-      </div>
-    </div>
-  </section>
+  </main>
 
   <footer class="bg-slate-50 text-slate-500 py-8 text-center border-t border-slate-200 text-sm">
-    <p>&copy; 2024 Danielli Arcari. Todos os direitos reservados.</p>
+    <div class="container mx-auto px-6">
+      <p>&copy; 2025 Danielli Arcari. Todos os direitos reservados.</p>
+    </div>
   </footer>
+
+  <script>
+    // Header shadow on scroll + mobile nav toggle
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 8) header.classList.add('header-shadow'); else header.classList.remove('header-shadow');
+    });
+
+    const toggle = document.getElementById('nav-toggle');
+    const mobile = document.getElementById('mobile-nav');
+    toggle.addEventListener('click', () => {
+      const opened = mobile.classList.toggle('hidden') === false;
+      toggle.setAttribute('aria-expanded', opened);
+    });
+  </script>
+
+  <!-- JSON-LD básico para SEO (Pessoa/Profissional) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Danielli Arcari",
+      "jobTitle": "Analista de Dados Jr",
+      "description": "Graduanda em Ciência da Computação focada em Análise de Dados, Python e visualização.",
+      "url": "https://danielli-arcari.github.io",
+      "sameAs": [
+        "https://www.linkedin.com/in/danielli-arcari/",
+        "https://github.com/danielli-arcari"
+      ]
+    }
+  </script>
 
 </body>
 </html>
+
