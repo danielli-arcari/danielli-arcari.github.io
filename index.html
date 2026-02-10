@@ -1,515 +1,80 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio | Danielli Arçari - Análise de Dados</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <style>
-        /* --- Reset e Variáveis --- */
-        :root {
-            --primary-color: #0f172a; /* Azul escuro profissional */
-            --accent-color: #0ea5e9;  /* Azul ciano para destaque */
-            --bg-color: #f8fafc;
-            --text-color: #334155;
-            --card-bg: #ffffff;
-            --transition: all 0.3s ease;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        /* --- Layout Utilitários --- */
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        section {
-            padding: 80px 0;
-        }
-
-        h2 {
-            font-size: 2rem;
-            color: var(--primary-color);
-            margin-bottom: 40px;
-            position: relative;
-            display: inline-block;
-        }
-
-        h2::after {
-            content: '';
-            display: block;
-            width: 50%;
-            height: 4px;
-            background: var(--accent-color);
-            margin-top: 8px;
-            border-radius: 2px;
-        }
-
-        /* --- Header / Nav --- */
-        header {
-            background-color: var(--card-bg);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 70px;
-        }
-
-        .logo {
-            font-weight: 700;
-            font-size: 1.2rem;
-            color: var(--primary-color);
-        }
-
-        .logo span {
-            color: var(--accent-color);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 20px;
-        }
-
-        .nav-links a {
-            font-weight: 500;
-            font-size: 0.95rem;
-            color: var(--text-color);
-        }
-
-        .nav-links a:hover {
-            color: var(--accent-color);
-        }
-
-        /* --- Hero Section --- */
-        #home {
-            background: linear-gradient(135deg, var(--primary-color) 0%, #1e293b 100%);
-            color: white;
-            padding-top: 150px;
-            padding-bottom: 100px;
-            text-align: center;
-        }
-
-        .hero-content h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-
-        .hero-content p {
-            font-size: 1.1rem;
-            max-width: 700px;
-            margin: 0 auto 30px;
-            opacity: 0.9;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--accent-color);
-            color: white;
-            padding: 12px 30px;
-            border-radius: 5px;
-            font-weight: 600;
-            transition: var(--transition);
-        }
-
-        .btn:hover {
-            background-color: #0284c7;
-            transform: translateY(-2px);
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            border: 2px solid white;
-            margin-left: 10px;
-        }
-
-        .btn-outline:hover {
-            background-color: white;
-            color: var(--primary-color);
-        }
-
-        /* --- Sobre Mim --- */
-        #sobre .about-content {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-        
-        .about-text p {
-            margin-bottom: 15px;
-            text-align: justify;
-        }
-
-        /* --- Skills --- */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .skill-card {
-            background: var(--card-bg);
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            border-left: 4px solid var(--accent-color);
-        }
-
-        .skill-card h3 {
-            margin-bottom: 15px;
-            color: var(--primary-color);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .skill-list li {
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .skill-list li i {
-            color: var(--accent-color);
-            font-size: 0.8rem;
-        }
-
-        /* --- Projetos --- */
-        #projetos {
-            background-color: #f1f5f9;
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .project-card {
-            background: var(--card-bg);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            transition: var(--transition);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-
-        .project-header {
-            background-color: var(--primary-color);
-            padding: 15px 20px;
-            color: white;
-        }
-        
-        .project-header i {
-            color: var(--accent-color);
-            margin-right: 8px;
-        }
-
-        .project-body {
-            padding: 20px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .project-body h4 {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            color: var(--primary-color);
-        }
-
-        .project-body p {
-            font-size: 0.9rem;
-            color: #64748b;
-            margin-bottom: 20px;
-        }
-
-        .project-link {
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--accent-color);
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-        }
-        
-        .project-link:hover {
-            text-decoration: underline;
-        }
-
-        .multi-links {
-            display: flex;
-            gap: 15px;
-            margin-top: auto;
-        }
-
-        /* --- Contato / Footer --- */
-        footer {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 60px 0 30px;
-            text-align: center;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-
-        .social-links a {
-            font-size: 1.5rem;
-            transition: var(--transition);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .social-links a span {
-            font-size: 0.8rem;
-            font-weight: 300;
-        }
-
-        .social-links a:hover {
-            color: var(--accent-color);
-        }
-
-        .copyright {
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 20px;
-            font-size: 0.85rem;
-            opacity: 0.7;
-        }
-
-        /* --- Mobile --- */
-        @media (max-width: 768px) {
-            .hero-content h1 { font-size: 2rem; }
-            .btn { display: block; margin: 10px auto; width: 100%; max-width: 300px; }
-            .btn-outline { margin-left: auto; }
-            h2 { font-size: 1.75rem; }
-        }
-    </style>
-</head>
-
-<body>
-
-<header>
-    <div class="container">
-        <nav>
-            <div class="logo">Danielli <span>Arçari</span></div>
-            <div class="nav-links">
-                <a href="#sobre">Sobre</a>
-                <a href="#skills">Skills</a>
-                <a href="#projetos">Projetos</a>
-                <a href="#contato">Contato</a>
-            </div>
-        </nav>
-    </div>
-</header>
-
-<section id="home">
-    <div class="container hero-content">
-        <h1>Transformo dados brutos em <br>insights acionáveis</h1>
-        <p>Sou Danielli Arçari, graduanda em Ciência da Computação com foco em Análise de Dados. Utilizo Python, SQL e Pandas para responder perguntas de negócio de forma direta e mensurável.</p>
-        <div>
-            <a href="#projetos" class="btn">Ver Projetos</a>
-            <a href="https://www.linkedin.com/in/danielli-arcari/" target="_blank" class="btn btn-outline">LinkedIn</a>
-        </div>
-    </div>
-</section>
-
-<section id="sobre">
-    <div class="container">
-        <h2>Sobre a profissional</h2>
-        <div class="about-content">
-            <div class="about-text">
-                <p>Sou graduanda em Ciência da Computação e minha abordagem profissional combina pensamento crítico, documentação clara e práticas reproduzíveis para análises de dados robustas.</p>
-                <p>Tenho experiência prática com limpeza de dados (data cleaning), análise exploratória (EDA) e visualização orientada a decisões de negócio. Trabalho com confiança utilizando Python (pandas), SQL e Excel para transformar grandes volumes de informações em respostas estratégicas.</p>
-                <p>Atualmente busco uma oportunidade de entrada na área de dados onde eu possa aplicar meus conhecimentos técnicos para gerar valor real.</p>
-                <a href="https://www.linkedin.com/in/danielli-arcari/" target="_blank" style="color: var(--accent-color); font-weight: 600;">Ver experiência completa no LinkedIn &rarr;</a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="skills" style="background-color: #f8fafc;">
-    <div class="container">
-        <h2>Stack Tecnológico</h2>
-        <div class="skills-grid">
-            <div class="skill-card">
-                <h3><i class="fa-solid fa-code"></i> Linguagens</h3>
-                <ul class="skill-list">
-                    <li><i class="fa-solid fa-check"></i> Python (Foco em Análise de dados)</li>
-                    <li><i class="fa-solid fa-check"></i> SQL (Consultas e Manipulação)</li>
-                    <li><i class="fa-solid fa-check"></i> Lógica de Programação</li>
-                </ul>
-            </div>
-
-            <div class="skill-card">
-                <h3><i class="fa-solid fa-chart-line"></i> Data Science</h3>
-                <ul class="skill-list">
-                    <li><i class="fa-solid fa-check"></i> Pandas & NumPy</li>
-                    <li><i class="fa-solid fa-check"></i> Matplotlib & Seaborn</li>
-                    <li><i class="fa-solid fa-check"></i> Jupyter & Google Colab</li>
-                </ul>
-            </div>
-
-            <div class="skill-card">
-                <h3><i class="fa-solid fa-database"></i> Dados & Tools</h3>
-                <ul class="skill-list">
-                    <li><i class="fa-solid fa-check"></i> MySQL & PostgreSQL</li>
-                    <li><i class="fa-solid fa-check"></i> Git / GitHub</li>
-                    <li><i class="fa-solid fa-check"></i> Excel Avançado</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
-
 <section id="projetos">
     <div class="container">
-        <h2>Meus Projetos</h2>
+        <h2>Projetos em Destaque</h2>
         <div class="projects-grid">
 
-            <!-- 🔧 PROJETO ALTERADO -->
+            <!-- PROJETO 1 -->
             <div class="project-card">
                 <div class="project-header">
                     <i class="fa-solid fa-scale-balanced"></i> Análise Social
                 </div>
                 <div class="project-body">
-                    <h4>População Carcerária de MG (2017-2024)</h4>
-                    <p>Análise exploratória detalhada sobre a evolução e perfil da população carcerária em Minas Gerais nos últimos 7 anos.</p>
+                    <h4>População Prisional MG (2017–2024)</h4>
+                    <p>Análise exploratória com foco na evolução da população carcerária em Minas Gerais. Investigação de tendências, crescimento anual e padrões estruturais utilizando Python e visualizações estratégicas.</p>
                     <div class="multi-links">
-                        <a href="https://github.com/danielli-arcari/analisededados_populacaoprisionalMG_2017a2024" target="_blank" class="project-link">Ver Projeto (GitHub)</a>
-                        <a href="https://colab.research.google.com/drive/1ESr8ZIiVcNlW785A_7c3kQjfPLPLXbCu?usp=sharing" target="_blank" class="project-link">Ver Notebook</a>
+                        <a href="https://github.com/danielli-arcari/analisededados_populacaoprisionalMG_2017a2024"
+                           target="_blank"
+                           class="project-link">
+                           Ver no GitHub
+                        </a>
                     </div>
                 </div>
             </div>
 
-            <!-- OUTROS PROJETOS (IGUAIS AO ORIGINAL) -->
+            <!-- PROJETO 2 -->
             <div class="project-card">
                 <div class="project-header">
-                    <i class="fa-solid fa-laptop-code"></i> Mercado de Trabalho
+                    <i class="fa-solid fa-building"></i> Mercado Imobiliário
                 </div>
                 <div class="project-body">
-                    <h4>Análise do Mercado de TI</h4>
-                    <p>Estudo abrangente utilizando Python para entender as demandas, salários e tendências do setor de Tecnologia da Informação.</p>
+                    <h4>Análise de Dados Imobiliários</h4>
+                    <p>Exploração de dados do setor imobiliário para identificar padrões de precificação, variáveis relevantes e oportunidades de mercado. Limpeza, tratamento e análise utilizando Python e Pandas.</p>
                     <div class="multi-links">
-                        <a href="https://colab.research.google.com/drive/1gZSaMn-iavo5-DVsdTvuJBc39LAubcGA?usp=sharing" target="_blank" class="project-link">Parte 1</a>
-                        <a href="https://colab.research.google.com/drive/1BB9nEmwQzBuefpB_8-Q22ySi48DiawLO?usp=sharing" target="_blank" class="project-link">Parte 2 (Continuação)</a>
+                        <a href="https://github.com/danielli-arcari/projeto_imobiliaria"
+                           target="_blank"
+                           class="project-link">
+                           Ver no GitHub
+                        </a>
                     </div>
                 </div>
             </div>
 
+            <!-- PROJETO 3 -->
             <div class="project-card">
                 <div class="project-header">
-                    <i class="fa-solid fa-utensils"></i> Análise de Negócio
+                    <i class="fa-solid fa-utensils"></i> Análise de Consumo
                 </div>
                 <div class="project-body">
-                    <h4>Cuisine Rating</h4>
-                    <p>Análise de avaliações de restaurantes para identificar padrões de preferência dos consumidores e qualidade de serviço.</p>
-                    <a href="https://colab.research.google.com/drive/1LOkaSOgVbuFusigzwaRzfwIY-0kgo0cN?usp=sharing" target="_blank" class="project-link">Ver Notebook <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    <h4>Cuisine Rating Analysis</h4>
+                    <p>Análise de avaliações de restaurantes para identificar padrões de satisfação, fatores que influenciam notas e possíveis insights para melhoria de experiência do cliente.</p>
+                    <div class="multi-links">
+                        <a href="https://github.com/danielli-arcari/cuisine-rating-analysis"
+                           target="_blank"
+                           class="project-link">
+                           Ver no GitHub
+                        </a>
+                    </div>
                 </div>
             </div>
 
+            <!-- PROJETO 4 -->
             <div class="project-card">
                 <div class="project-header">
-                    <i class="fa-solid fa-money-bill-trend-up"></i> Experimento Cashback
+                    <i class="fa-solid fa-cart-shopping"></i> Varejo & Performance
                 </div>
                 <div class="project-body">
-                    <h4>Experimento Análise de Cashback</h4>
-                    <p>Estudo de caso focado em um experimento de uma empresa especializada em cashback, analisando comportamento dos usuários e impacto financeiro.</p>
-                   <div class="multi-links">
-    <a href="https://github.com/danielli-arcari/AnaliseDeDados_ExperimentoCashbackMeliuz"
-       target="_blank"
-       class="project-link">
-        Ver Projeto (GitHub)
-    </a>
-
-    <a href="https://colab.research.google.com/drive/1slcR0ejixmAQNrfhnSUMZkvGlMUPDzGv?usp=sharing"
-       target="_blank"
-       class="project-link">
-        Ver Notebook
-    </a>
-</div>
+                    <h4>Alura Store – Análise de Vendas</h4>
+                    <p>Projeto de análise de dados de vendas com foco em performance de produtos, faturamento e comportamento de compra. Aplicação de técnicas de EDA e interpretação orientada a decisões comerciais.</p>
+                    <div class="multi-links">
+                        <a href="https://github.com/danielli-arcari/Alura_Store"
+                           target="_blank"
+                           class="project-link">
+                           Ver no GitHub
+                        </a>
+                    </div>
+                </div>
             </div>
 
         </div>
     </div>
 </section>
-
-<footer id="contato">
-    <div class="container">
-        <h2>Vamos conversar?</h2>
-        <p style="margin-bottom: 40px; color: #cbd5e1;">Estou disponível para entrevistas e colaborações.</p>
-        
-        <div class="social-links">
-            <a href="https://www.linkedin.com/in/danielli-arcari/" target="_blank">
-                <i class="fa-brands fa-linkedin"></i>
-                <span>LinkedIn</span>
-            </a>
-            <a href="https://github.com/danielli-arcari" target="_blank">
-                <i class="fa-brands fa-github"></i>
-                <span>GitHub</span>
-            </a>
-            <a href="mailto:danielli.arcari@gmail.com">
-                <i class="fa-solid fa-envelope"></i>
-                <span>Email</span>
-            </a>
-        </div>
-        
-        <div class="copyright">
-            &copy; 2025 - Danielli Arçari
-        </div>
-    </div>
-</footer>
-
-</body>
-</html>
