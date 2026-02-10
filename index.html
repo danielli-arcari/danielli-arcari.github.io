@@ -1,80 +1,256 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danielli Arçari | Portfólio - Análise de Dados</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #0f172a;
+            --accent: #0ea5e9;
+            --bg: #f8fafc;
+            --text: #334155;
+            --card: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: var(--card);
+            position: fixed;
+            width: 100%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--primary);
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links a {
+            margin-left: 20px;
+            font-weight: 500;
+            text-decoration: none;
+            color: var(--text);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        #home {
+            background: linear-gradient(135deg, var(--primary), #1e293b);
+            color: white;
+            text-align: center;
+            padding-top: 150px;
+        }
+
+        #home h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        #home p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: var(--primary);
+        }
+
+        #sobre p {
+            margin-bottom: 15px;
+        }
+
+        #projetos {
+            background: #f1f5f9;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: var(--card);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .project-card h4 {
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .project-card p {
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            color: #64748b;
+        }
+
+        .project-link {
+            color: var(--accent);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        footer {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 50px 0 20px;
+        }
+
+        .social-links a {
+            margin: 0 15px;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .social-links a:hover {
+            color: var(--accent);
+        }
+
+        .copyright {
+            margin-top: 20px;
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="container">
+        <nav>
+            <div class="logo">Danielli <span>Arçari</span></div>
+            <div class="nav-links">
+                <a href="#sobre">Sobre</a>
+                <a href="#projetos">Projetos</a>
+                <a href="#contato">Contato</a>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<section id="home">
+    <div class="container">
+        <h1>Analista de Dados em formação</h1>
+        <p>Transformo dados brutos em análises estruturadas utilizando Python, SQL e visualizações estratégicas para apoiar decisões baseadas em evidências.</p>
+        <a href="#projetos" class="btn">Ver Projetos</a>
+    </div>
+</section>
+
+<section id="sobre">
+    <div class="container">
+        <h2>Sobre</h2>
+        <p>Graduanda em Ciência da Computação com foco em Análise de Dados. Trabalho com limpeza, exploração e interpretação de dados utilizando Python (Pandas, NumPy), SQL e ferramentas de visualização.</p>
+        <p>Minha formação anterior em Direito desenvolveu análise crítica, organização estruturada de informações e responsabilidade com dados sensíveis.</p>
+        <p>Busco estágio remoto em análise de dados para aplicar conhecimentos técnicos em contextos reais de negócio.</p>
+    </div>
+</section>
+
 <section id="projetos">
     <div class="container">
         <h2>Projetos em Destaque</h2>
         <div class="projects-grid">
 
-            <!-- PROJETO 1 -->
             <div class="project-card">
-                <div class="project-header">
-                    <i class="fa-solid fa-scale-balanced"></i> Análise Social
-                </div>
-                <div class="project-body">
-                    <h4>População Prisional MG (2017–2024)</h4>
-                    <p>Análise exploratória com foco na evolução da população carcerária em Minas Gerais. Investigação de tendências, crescimento anual e padrões estruturais utilizando Python e visualizações estratégicas.</p>
-                    <div class="multi-links">
-                        <a href="https://github.com/danielli-arcari/analisededados_populacaoprisionalMG_2017a2024"
-                           target="_blank"
-                           class="project-link">
-                           Ver no GitHub
-                        </a>
-                    </div>
-                </div>
+                <h4>População Prisional MG (2017–2024)</h4>
+                <p>Análise exploratória sobre evolução e tendências da população carcerária em Minas Gerais. Investigação de padrões estruturais e crescimento anual.</p>
+                <a href="https://github.com/danielli-arcari/analisededados_populacaoprisionalMG_2017a2024" target="_blank" class="project-link">Ver no GitHub</a>
             </div>
 
-            <!-- PROJETO 2 -->
             <div class="project-card">
-                <div class="project-header">
-                    <i class="fa-solid fa-building"></i> Mercado Imobiliário
-                </div>
-                <div class="project-body">
-                    <h4>Análise de Dados Imobiliários</h4>
-                    <p>Exploração de dados do setor imobiliário para identificar padrões de precificação, variáveis relevantes e oportunidades de mercado. Limpeza, tratamento e análise utilizando Python e Pandas.</p>
-                    <div class="multi-links">
-                        <a href="https://github.com/danielli-arcari/projeto_imobiliaria"
-                           target="_blank"
-                           class="project-link">
-                           Ver no GitHub
-                        </a>
-                    </div>
-                </div>
+                <h4>Análise de Dados Imobiliários</h4>
+                <p>Exploração de variáveis de precificação e padrões do mercado imobiliário utilizando técnicas de limpeza e análise com Python.</p>
+                <a href="https://github.com/danielli-arcari/projeto_imobiliaria" target="_blank" class="project-link">Ver no GitHub</a>
             </div>
 
-            <!-- PROJETO 3 -->
             <div class="project-card">
-                <div class="project-header">
-                    <i class="fa-solid fa-utensils"></i> Análise de Consumo
-                </div>
-                <div class="project-body">
-                    <h4>Cuisine Rating Analysis</h4>
-                    <p>Análise de avaliações de restaurantes para identificar padrões de satisfação, fatores que influenciam notas e possíveis insights para melhoria de experiência do cliente.</p>
-                    <div class="multi-links">
-                        <a href="https://github.com/danielli-arcari/cuisine-rating-analysis"
-                           target="_blank"
-                           class="project-link">
-                           Ver no GitHub
-                        </a>
-                    </div>
-                </div>
+                <h4>Cuisine Rating Analysis</h4>
+                <p>Análise de avaliações de restaurantes para identificar fatores que impactam satisfação do cliente e padrões de comportamento.</p>
+                <a href="https://github.com/danielli-arcari/cuisine-rating-analysis" target="_blank" class="project-link">Ver no GitHub</a>
             </div>
 
-            <!-- PROJETO 4 -->
             <div class="project-card">
-                <div class="project-header">
-                    <i class="fa-solid fa-cart-shopping"></i> Varejo & Performance
-                </div>
-                <div class="project-body">
-                    <h4>Alura Store – Análise de Vendas</h4>
-                    <p>Projeto de análise de dados de vendas com foco em performance de produtos, faturamento e comportamento de compra. Aplicação de técnicas de EDA e interpretação orientada a decisões comerciais.</p>
-                    <div class="multi-links">
-                        <a href="https://github.com/danielli-arcari/Alura_Store"
-                           target="_blank"
-                           class="project-link">
-                           Ver no GitHub
-                        </a>
-                    </div>
-                </div>
+                <h4>Alura Store – Análise de Vendas</h4>
+                <p>Projeto de análise de performance de vendas, produtos e faturamento com foco em insights comerciais.</p>
+                <a href="https://github.com/danielli-arcari/Alura_Store" target="_blank" class="project-link">Ver no GitHub</a>
             </div>
 
         </div>
     </div>
 </section>
+
+<footer id="contato">
+    <div class="container">
+        <h2>Contato</h2>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/danielli-arcari/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/danielli-arcari" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="mailto:danielli.arcari@gmail.com"><i class="fas fa-envelope"></i></a>
+        </div>
+        <div class="copyright">
+            © 2026 Danielli Arçari
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
